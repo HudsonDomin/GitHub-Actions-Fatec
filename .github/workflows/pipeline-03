@@ -1,0 +1,15 @@
+on: pull_request # 1. Trigger (Gatilho)
+name: Pipeline Experimental
+jobs: # 2. Definição dos jobs
+  ci-continous-integration:
+    name: Teste de CI
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Olá Fatec!"
+        name: Mensagem especial
+      - uses: actions/checkout@v5
+        name: Fazendo clone e checkout no meu repositório nesta VM
+      - name: Zipar arquivos do meu repositório
+        run: zip -r arquivo.zip .
+      - name: Listar os arquivos do meu repositório
+        run: ls -la
